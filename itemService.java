@@ -89,6 +89,61 @@ public static ArrayList<missItemEntity> items = new ArrayList<missItemEntity>();
      }
 	  }
 
+ public void uploadItem() 
+	  {
+		  missItemEntity obj = new missItemEntity();
+		  itemController ob = new itemController();
+		  System.out.println("Plz fill the following item description form \n");
+			Scanner in_info = new Scanner(System.in);
+			System.out.println("enter item name\n");
+			obj.name = in_info.nextLine();
+			
+			System.out.println("choose item category\n 1-electronics\n 2-wallets\n 3-animals\n 4-Bags\n 5-Glasses\n 6-Study tools\n 7-Books\n 8-Other\n");
+			int choice = in_info.nextInt();
+			if(choice == 1)
+				obj.category_name = "electronics";
+			else if(choice == 2)
+				obj.category_name = "wallets";
+			else if(choice == 3)
+				obj.category_name = "animals";
+			else if(choice == 4)
+				obj.category_name = "Bags";
+			else if(choice == 5)
+				obj.category_name = "Glasses";
+			else if(choice == 6)
+				obj.category_name = "Study tools";
+			else if(choice == 7)
+				obj.category_name = "Books";
+			else 
+				obj.category_name = "Other";
+			System.out.println("\n");
+			Scanner in_info11 = new Scanner(System.in);
+
+			System.out.println("enter short description about item\n");
+			obj.descr = in_info11.nextLine();
+			
+			System.out.println("enter item color\n");
+			obj.color = in_info11.nextLine();
+
+			System.out.println("enter item serial.no\n");
+			obj.Serial_no = in_info11.nextLine();
+			
+			Random rand = new Random();
+			obj.id = rand.nextInt(50) + 1;
+			int size0 = items.size();
+			items.add(obj);
+			int size1 = items.size();
+			if(ob.respond_to_request() && size1 > size0)
+			{
+				System.out.println(size1);
+				System.out.println("post Complete Thanks :)");
+			}
+			else
+				System.out.println("post not Complete Plz enter your data...");
+			
+		  
+	  }
+
 	
 	
 
